@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="0.0"
+        android:inputType="numberDecimal"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal3"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:ems="10"
+        android:hint="0.0"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="220dp"
+        android:layout_height="195dp"
+        app:layout_constraintBottom_toTopOf="@+id/editTextNumberDecimal2"
+        app:layout_constraintStart_toEndOf="@+id/checkBox2"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3"
+        app:srcCompat="@drawable/calcular" />
+
+    <EditText
+        android:id="@+id/editTextNumberDecimal2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="RESULTADO"
+        android:inputType="numberDecimal"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox4"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="180dp"
+        android:layout_height="51dp"
+        android:text="QUITAR LOGO"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <Switch
+        android:id="@+id/switch2"
+        android:layout_width="171dp"
+        android:layout_height="49dp"
+        android:text="ON/OFF"
+        app:layout_constraintStart_toEndOf="@+id/switch1"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal2" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="147dp"
+        android:layout_height="52dp"
+        android:text="Suma"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNumberDecimal3"
+        tools:layout_editor_absoluteX="3dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox2"
+        android:layout_width="149dp"
+        android:layout_height="52dp"
+        android:text="Resta"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="150dp"
+        android:layout_height="52dp"
+        android:text="Multiplicar"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox2"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="150dp"
+        android:layout_height="51dp"
+        android:text="Division"
+        app:layout_constraintTop_toBottomOf="@+id/checkBox3"
+        tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
