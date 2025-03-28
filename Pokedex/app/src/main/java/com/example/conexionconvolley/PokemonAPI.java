@@ -49,7 +49,7 @@ class PokemonAPI {
                     public void onResponse(JSONObject response) {
                         try {
                             Log.d("API_RESPONSE", response.toString());
-                            // Obtener el JSON de "sprites"
+
                             JSONObject sprites = response.getJSONObject("sprites");
                             String imageUrl = sprites.getString("front_default");
 
@@ -57,13 +57,13 @@ class PokemonAPI {
                             String name = formsArray.getJSONObject(0).getString("name");
                             name = name.toUpperCase();
                             pokeName.setText(name);
-                            // Cargar la imagen con Picasso
+
                             Picasso.get().load(imageUrl).into(imageView);
 
-                            // Obtener el JSON de "abilities"
+
                             JSONArray abilitiesArray = response.getJSONArray("abilities");
 
-                            // Crear una lista de habilidades
+
                             List<String> habilidades = new ArrayList<>();
                             for (int i = 0; i < abilitiesArray.length(); i++) {
                                 JSONObject abilityObject = abilitiesArray.getJSONObject(i);
@@ -71,7 +71,7 @@ class PokemonAPI {
                                 habilidades.add(ability.getString("name"));
                             }
 
-                            // Adaptar los datos al Spinner
+
                             ArrayAdapter<String> adapter = new ArrayAdapter<>(
                                     context, android.R.layout.simple_spinner_item, habilidades
                             );
