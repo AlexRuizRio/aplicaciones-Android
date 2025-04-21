@@ -7,6 +7,9 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -16,18 +19,17 @@ public class MainActivity extends AppCompatActivity {
 
         ListView listView = findViewById(R.id.listView);
 
-        String[] items = {"Manzana", "Banana", "Cereza", "Durazno"};
+        List<Integer> listaImagenes = new ArrayList<>();
+        listaImagenes.add(R.drawable.beatle);
+        listaImagenes.add(R.drawable.nirvana);
+        listaImagenes.add(R.drawable.pinkfloid);
+        listaImagenes.add(R.drawable.tequila);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(
-                this,
-                android.R.layout.simple_list_item_1,
-                items
-        );
-
+        ImagenDobleAdapter adapter = new ImagenDobleAdapter(this, listaImagenes);
         listView.setAdapter(adapter);
 
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            Toast.makeText(this, "Hiciste clic en: " + items[position], Toast.LENGTH_SHORT).show();
-        });
+        //listView.setOnItemClickListener((parent, view, position, id) -> {
+          //  Toast.makeText(this, "Hiciste clic en: " + items[position], Toast.LENGTH_SHORT).show();
+        //});
     }
 }
