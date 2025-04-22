@@ -6,13 +6,15 @@ public class Cancion {
     private String disco;
     private int anio;
     private String url;
+    private int imagenResId;
 
-    public Cancion (String titulo, String autor, String disco, int anio, String url){
+    public Cancion(String titulo, String autor, String disco, int anio, String url, int imagenResId) {
         this.titulo = titulo;
         this.autor = autor;
         this.disco = disco;
         this.anio = anio;
         this.url = url;
+        this.imagenResId = imagenResId; // GUARDAMOS la imagen
     }
     public String getTitulo() {
         return titulo;
@@ -32,5 +34,8 @@ public class Cancion {
 
     public String getUrl() {
         return url;
+    }
+    public int getImagenResId() {
+        return imagenResId;
     }
 }
