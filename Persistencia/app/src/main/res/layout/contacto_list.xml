@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/imagen"
         android:layout_width="151dp"
         android:layout_height="150dp"
         app:srcCompat="@drawable/foto1"
@@ -22,14 +22,14 @@
         android:textAlignment="viewStart"
         android:textColor="#E90CE7"
         android:textStyle="bold"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/imagen"
         tools:layout_editor_absoluteY="26dp" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/descripcion"
         android:layout_width="220dp"
         android:layout_height="102dp"
         android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintEnd_toStartOf="@+id/imagen"
         app:layout_constraintTop_toBottomOf="@+id/nombre" />
 </androidx.constraintlayout.widget.ConstraintLayout>

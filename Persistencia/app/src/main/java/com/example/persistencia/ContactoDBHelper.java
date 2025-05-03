@@ -42,7 +42,7 @@ public class ContactoDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NOMBRE, contacto.getNombre());
-        values.put(COLUMN_TELEFONO, contacto.getTelefono());
+        values.put(COLUMN_TELEFONO, contacto.getDescripcion());
         values.put(COLUMN_IMAGEN_ID, contacto.getImagenId());
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -72,7 +72,7 @@ public class ContactoDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NOMBRE, contacto.getNombre());
-        values.put(COLUMN_TELEFONO, contacto.getTelefono());
+        values.put(COLUMN_TELEFONO, contacto.getDescripcion());
         values.put(COLUMN_IMAGEN_ID, contacto.getImagenId());
 
         db.update(TABLE_NAME, values, COLUMN_ID + " = ?",

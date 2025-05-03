@@ -3,13 +3,13 @@ package com.example.persistencia;
 public class Contacto {
     private int id;
     private String nombre;
-    private String telefono;
+    private String descripcion;
     private int imagenid;
 
-    public Contacto (int id, String nombre, String telefono, int imagenid) {
+    public Contacto (int id, String nombre, String descripcion, int imagenid) {
         this.id = id;
         this.nombre = nombre;
-        this.telefono = telefono;
+        this.descripcion = descripcion;
         this.imagenid = imagenid;
     }
 
@@ -21,8 +21,8 @@ public class Contacto {
         return nombre;
     }
 
-    public String getTelefono() {
-        return telefono;
+    public String getDescripcion() {
+        return descripcion;
     }
 
     public int getImagenId() {
@@ -37,8 +37,8 @@ public class Contacto {
         this.nombre = nombre;
     }
 
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public void setImagenid(int imagenid) {
