@@ -25,7 +25,7 @@ public class Contacto {
         return telefono;
     }
 
-    public int getImagenid() {
+    public int getImagenId() {
         return imagenid;
     }
 
