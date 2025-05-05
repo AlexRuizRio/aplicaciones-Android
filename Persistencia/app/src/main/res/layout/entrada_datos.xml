@@ -17,7 +17,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imagencreate"
         android:layout_width="194dp"
         android:layout_height="174dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -25,39 +25,39 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <EditText
-        android:id="@+id/editTextText"
+        android:id="@+id/nombrecreate"
         android:layout_width="275dp"
         android:layout_height="46dp"
         android:ems="10"
         android:inputType="text"
         android:text="Nombre:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+        app:layout_constraintTop_toBottomOf="@+id/imagencreate" />
 
     <EditText
-        android:id="@+id/editTextText2"
+        android:id="@+id/descripcioncreate"
         android:layout_width="275dp"
         android:layout_height="46dp"
         android:ems="10"
         android:inputType="text"
         android:text="Intereses:"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
+        app:layout_constraintTop_toBottomOf="@+id/nombrecreate" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/guardarcreate"
         android:layout_width="150dp"
         android:layout_height="51dp"
         android:text="Salvar Datos"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintTop_toBottomOf="@+id/descripcioncreate" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/atrascreate"
         android:layout_width="160dp"
         android:layout_height="051dp"
         android:text="Salir sin guardar"
-        app:layout_constraintStart_toEndOf="@+id/button"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText2" />
+        app:layout_constraintStart_toEndOf="@+id/guardarcreate"
+        app:layout_constraintTop_toBottomOf="@+id/descripcioncreate" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
