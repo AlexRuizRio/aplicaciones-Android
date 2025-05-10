@@ -10,26 +10,30 @@
         android:id="@+id/imagen"
         android:layout_width="151dp"
         android:layout_height="150dp"
-        app:srcCompat="@drawable/foto1"
-        tools:layout_editor_absoluteX="235dp"
-        tools:layout_editor_absoluteY="26dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/foto1" />
 
     <TextView
         android:id="@+id/nombre"
-        android:layout_width="217dp"
-        android:layout_height="48dp"
+        android:layout_width="224dp"
+        android:layout_height="45dp"
         android:text="TextView"
         android:textAlignment="viewStart"
         android:textColor="#E90CE7"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toStartOf="@+id/imagen"
-        tools:layout_editor_absoluteY="26dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/descripcion"
-        android:layout_width="220dp"
-        android:layout_height="102dp"
+        android:layout_width="226dp"
+        android:layout_height="105dp"
         android:text="TextView"
+        android:textAlignment="viewStart"
         app:layout_constraintEnd_toStartOf="@+id/imagen"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nombre" />
 </androidx.constraintlayout.widget.ConstraintLayout>

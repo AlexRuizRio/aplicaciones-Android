@@ -12,12 +12,12 @@ import java.util.List;
 public class ContactoDBHelper extends SQLiteOpenHelper {
 
     private static final String DATABASE_NAME = "contactos.db";
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
 
     public static final String TABLE_NAME = "contactos";
     public static final String COLUMN_ID = "id";
     public static final String COLUMN_NOMBRE = "nombre";
-    public static final String COLUMN_TELEFONO = "telefono";
+    public static final String COLUMN_DESCRIPCION = "descripcion";
     public static final String COLUMN_IMAGEN_ID = "imagen_id";
 
     public ContactoDBHelper(Context context) {
@@ -28,7 +28,7 @@ public class ContactoDBHelper extends SQLiteOpenHelper {
         String sql = "CREATE TABLE " + TABLE_NAME + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_NOMBRE + " TEXT, " +
-                COLUMN_TELEFONO + " TEXT, " +
+                COLUMN_DESCRIPCION + " TEXT, " +
                 COLUMN_IMAGEN_ID + " INTEGER)";
         db.execSQL(sql);
     }
@@ -42,7 +42,7 @@ public class ContactoDBHelper extends SQLiteOpenHelper {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NOMBRE, contacto.getNombre());
-        values.put(COLUMN_TELEFONO, contacto.getDescripcion());
+        values.put(COLUMN_DESCRIPCION, contacto.getDescripcion());
         values.put(COLUMN_IMAGEN_ID, contacto.getImagenId());
         db.insert(TABLE_NAME, null, values);
         db.close();
@@ -57,7 +57,7 @@ public class ContactoDBHelper extends SQLiteOpenHelper {
             do {
                 int id = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_ID));
                 String nombre = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_NOMBRE));
-                String telefono = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TELEFONO));
+                String telefono = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPCION));
                 int imagenId = cursor.getInt(cursor.getColumnIndexOrThrow(COLUMN_IMAGEN_ID));
                 lista.add(new Contacto(id, nombre, telefono, imagenId));
             } while (cursor.moveToNext());
@@ -67,12 +67,29 @@ public class ContactoDBHelper extends SQLiteOpenHelper {
         db.close();
         return lista;
     }
+    public Contacto obtenerContactoPorId(int id) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.query("contactos", null, "id = ?", new String[]{String.valueOf(id)},
+                null, null, null);
 
+        if (cursor != null && cursor.moveToFirst()) {
+            Contacto c = new Contacto(
+                    cursor.getInt(cursor.getColumnIndexOrThrow("id")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("nombre")),
+                    cursor.getString(cursor.getColumnIndexOrThrow("descripcion")),
+                    cursor.getInt(cursor.getColumnIndexOrThrow("imagen_id"))
+            );
+            cursor.close();
+            return c;
+        }
+
+        return null;
+    }
     public void actualizarContacto(Contacto contacto) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
         values.put(COLUMN_NOMBRE, contacto.getNombre());
-        values.put(COLUMN_TELEFONO, contacto.getDescripcion());
+        values.put(COLUMN_DESCRIPCION, contacto.getDescripcion());
         values.put(COLUMN_IMAGEN_ID, contacto.getImagenId());
 
         db.update(TABLE_NAME, values, COLUMN_ID + " = ?",

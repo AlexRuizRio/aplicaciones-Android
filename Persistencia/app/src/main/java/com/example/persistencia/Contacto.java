@@ -13,6 +13,12 @@ public class Contacto {
         this.imagenid = imagenid;
     }
 
+    public Contacto (String nombre, String descripcion, int imagenid) {
+        this.nombre = nombre;
+        this.descripcion = descripcion;
+        this.imagenid = imagenid;
+    }
+
     public int getId() {
         return id;
     }

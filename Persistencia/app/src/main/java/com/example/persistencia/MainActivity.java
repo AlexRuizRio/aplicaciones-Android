@@ -2,6 +2,8 @@ package com.example.persistencia;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -25,32 +27,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ImageView btnadd = findViewById(R.id.guardar);
         ImageView btnoff = findViewById(R.id.apagar);
-       btnadd.setOnClickListener(v -> {
+        ListView listViewm = findViewById(R.id.listacontactos);
+
+        registerForContextMenu(listViewm);
+
+        btnadd.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, AgregarContactoActivity.class);
             startActivity(intent);
         });
         btnoff.setOnClickListener(v -> {
             finishAffinity();
         });
-        /*
-        btnadd.setOnClickListener(v ->
-                Toast.makeText(this, "Pulsaste Guardar", Toast.LENGTH_SHORT).show()
-        );
 
-        btnoff.setOnClickListener(v ->
-                Toast.makeText(this, "Pulsaste Apagar", Toast.LENGTH_SHORT).show()
-        );
-        */
         listaContactos = findViewById(R.id.listacontactos);
         dbHelper = new ContactoDBHelper(this);
-
         cargarContactos();
 
-        // Ejemplo: abre una actividad para agregar contacto
-        // findViewById(R.id.botonAgregar).setOnClickListener(v -> {
-        //     Intent intent = new Intent(this, AgregarContactoActivity.class);
-        //     startActivity(intent);
-        // });
     }
 
     private void cargarContactos() {
@@ -61,7 +53,32 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        Log.d("MainActivity", "onResume llamado");
         super.onResume();
         cargarContactos();  // Recarga por si se han añadido/actualizado contactos
     }
+
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        if (contactoAdapter != null) {
+            Contacto contacto = contactoAdapter.getItem(contactoAdapter.getSelectedPosition());
+            if (item.getItemId() == 1) {
+                // Editar
+                Intent intent = new Intent(this, EditarContactoActivity.class);
+                intent.putExtra("id", contacto.getId());
+                startActivity(intent);
+                return true;
+            } else if (item.getItemId() == 2) {
+                // Eliminar
+                contactoAdapter.getDbHelper().eliminarContacto(contacto.getId());
+                contactoAdapter.remove(contacto);
+                contactoAdapter.notifyDataSetChanged();
+                Toast.makeText(this, "Contacto eliminado", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        }
+        return super.onContextItemSelected(item);
+    }
+
+
 }

@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Persistencia"
         tools:targetApi="31">
+        <activity android:name=".AgregarContactoActivity" />
+        <activity android:name=".EditarContactoActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
