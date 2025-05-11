@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_favorito"
+        android:icon="@android:drawable/ic_lock_idle_charging"
+        app:showAsAction="always"
+        android:title="Favorito" />
+
+    <item
+        android:id="@+id/action_nueva"
+        android:icon="@android:drawable/ic_dialog_info"
+        app:showAsAction="always"
+        android:title="Nueva" />
+
+    <item
+        android:id="@+id/action_explorar"
+        android:icon="@android:drawable/ic_menu_gallery"
+        app:showAsAction="always"
+        android:title="Explorar" />
+</menu>
